@@ -5,11 +5,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Hero } from "./components/Hero";
 import { Second } from "./components/Second";
 import { ProfileCard } from "./components/ProfileCard";
-
+import { ChristmasLights } from "./components/ChristmasLights";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
+    const [isScrolling, setIsScrolling] = useState(false);
   const sectionRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -51,6 +52,8 @@ function App() {
         scrub: 1,
         pin: true,
         markers:true,
+        onUpdate: () => setIsScrolling(true),
+      onScrubComplete: () => setIsScrolling(false),
       },
     });
 
@@ -122,8 +125,9 @@ function App() {
       
       <section
   ref={sectionRef}
-  className="h-screen overflow-hidden flex justify-center"
+  className="h-screen overflow-hidden flex justify-center relative "
 >
+  <ChristmasLights  active={isScrolling} /> 
         <div className="
   cards
   relative

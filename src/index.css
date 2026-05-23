@@ -5,3 +5,62 @@
 html {
   background-color: black;
 }
+
+
+@font-face {
+  font-family: 'Rockybilly';
+  src: url('./Rockybilly.ttf') format('truetype');
+}
+
+.custom-font {
+  font-family: 'Rockybilly', sans-serif;
+  color: aliceblue;
+}
+
+@font-face {
+  font-family: 'RusticRoadway';
+  src: url('./RusticRoadway.otf') format('opentype');
+}
+
+.custom-fontt {
+  font-family: 'RusticRoadway', sans-serif;
+  color: aliceblue;
+  font-size: 1.5rem;
+}
+
+
+/* Add this to your CSS file */
+
+/* .cards-wrapper.is-scrolling .profile-card::before {
+  border-color: rgba(220, 0, 0, var(--flicker-opacity, 0.9));
+  box-shadow:
+    0 0 18px 4px rgba(200, 0, 0, var(--flicker-opacity, 0.6)),
+    inset 0 0 24px 2px rgba(180, 0, 0, 0.3);
+}
+
+.cards-wrapper.is-scrolling .card-name {
+  color: #ff5555;
+  text-shadow:
+    0 0 8px rgba(255, 50, 50, var(--flicker-opacity, 0.8)),
+    0 0 20px rgba(200, 0, 0, 0.5);
+} */
+
+/* Add only this to your CSS */
+
+.profile-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  border: 2px solid rgba(200, 0, 0, 0);
+  pointer-events: none;
+  z-index: 10;
+  transition: border-color 0.1s, box-shadow 0.1s;
+}
+
+.profile-card.scrolling::before {
+  border-color: rgba(220, 0, 0, var(--flicker-opacity, 0.9));
+  box-shadow:
+    0 0 18px 4px rgba(200, 0, 0, var(--flicker-opacity, 0.6)),
+    inset 0 0 24px 2px rgba(180, 0, 0, 0.3);
+}
