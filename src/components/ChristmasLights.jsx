@@ -40,28 +40,32 @@ export function ChristmasLights({ active }) {
   }
 
   return (
-    <div style={{
-      position: "fixed", 
-      top: 0,
-      left: 0,
-      right: 0,
-      display: "flex",
-      alignItems: "center",
-      padding: "8px 24px",
-      zIndex: 50,
-    }}>
+    <div
+  style={{
+  position: "fixed",
+  top: '4%',          // ✅ was 10%, move closer to top edge
+  left: "50%",
+  transform: "translateX(-50%)",
+  display: "flex",
+  alignItems: "center",
+  padding: "8px 16px",
+  zIndex: 9999,       // ✅ was 50, boost so nothing covers it
+  width: "100vw",     // ✅ ADD — stretch full width on mobile
+  justifyContent: "center", // ✅ ADD — center the bulbs
+}}
+>
       {Array.from({ length: 16 }).map((_, i) => (
         <div key={i} style={{ display: "flex", alignItems: "center" }}>
           <div
             ref={el => bulbRefs.current[i] = el}
             style={{
-              width: 10,
-              height: 10,
-              borderRadius: "50%",
-              background: "#333",
-              border: "1.5px solid #444",
-              transition: "all 0.05s",
-            }}
+  width: 14,          // ✅ was 10
+  height: 14,         // ✅ was 10
+  borderRadius: "50%",
+  background: "#333",
+  border: "1.5px solid #444",
+  transition: "all 0.05s",
+}}
           />
           {i < 15 && (
             <div style={{ width: 20, height: 1.5, background: "#444" }} />

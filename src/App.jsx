@@ -43,7 +43,7 @@ function App() {
   mm.add("(min-width: 1024px)", () => {
 
     gsap.to(".cards", {
-      x: -1600,
+      x: -2400,
       ease: "none",
       scrollTrigger: {
         trigger: sectionRef.current,
@@ -51,7 +51,7 @@ function App() {
         end: "+=2000",
         scrub: 1,
         pin: true,
-        markers:true,
+        // markers:true,
         onUpdate: () => setIsScrolling(true),
       onScrubComplete: () => setIsScrolling(false),
       },
@@ -72,13 +72,18 @@ function App() {
   yPercent: -50,
 });
 
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top top",
         end: () => `+=${cards.length * window.innerHeight * 2}`,
-        scrub: 2,
+        scrub: 1,
         pin: true,
+        onUpdate: () => setIsScrolling(true),       // ✅ ADD THIS
+        onScrubComplete: () => setIsScrolling(false),
+
+
       },
     });
 
@@ -140,6 +145,8 @@ function App() {
   lg:px-20
   lg:pt-20
 ">
+          <ProfileCard />
+          <ProfileCard />
           <ProfileCard />
           <ProfileCard />
           <ProfileCard />
