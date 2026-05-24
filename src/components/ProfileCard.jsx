@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-export function ProfileCard() {
+export function ProfileCard({ id, name, image }) {
   const navigate = useNavigate();
   const cardRef = useRef(null);
   const timerRef = useRef(null);
@@ -47,7 +47,7 @@ export function ProfileCard() {
   return (
     <div
       className="card absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:relative lg:left-auto lg:top-auto lg:translate-x-0 lg:translate-y-0 flex justify-center items-center"
-      onClick={() => navigate("/event")}
+      onClick={() => navigate(`/event/${id}`)}  // ← passes the id
     >
       <div
         ref={cardRef}
@@ -55,13 +55,13 @@ export function ProfileCard() {
       >
         <div className="h-[500px] overflow-hidden">
           <img
-            src="https://i.pinimg.com/1200x/15/b4/80/15b48077a47ef26b94ac1ee5b79825b9.jpg"
-            alt="profile"
+            src={image}
+            alt={name}
             className="h-full w-full object-cover object-top"
           />
         </div>
         <div className="text-center py-6">
-          <h2 className="custom-fontt">Natalie Paisley</h2>
+          <h2 className="custom-fontt">{name}</h2>
         </div>
       </div>
     </div>

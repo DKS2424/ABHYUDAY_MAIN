@@ -1,8 +1,7 @@
-import { StrictMode } from 'react'
+import { StrictMode, lazy, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
-
 
 import {
   BrowserRouter,
@@ -10,7 +9,8 @@ import {
   Route,
 } from "react-router-dom";
 
-import EventPage from "./components/EventPage.jsx";
+// Remove the old EventPage import and use lazy instead:
+const EventPage = lazy(() => import("./components/EventPage.jsx"));
 
 if (typeof window !== 'undefined') {
   import('smoothscroll-polyfill').then(({ polyfill }) => {
@@ -22,7 +22,14 @@ createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
-      <Route path="/event" element={<EventPage />} />
+      <Route
+        path="/event/:id"
+        element={
+          <Suspense fallback={<div className="bg-black min-h-screen" />}>
+            <EventPage />
+          </Suspense>
+        }
+      />
     </Routes>
   </BrowserRouter>
 )

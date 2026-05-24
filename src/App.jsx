@@ -7,6 +7,20 @@ import { Second } from "./components/Second";
 import { ProfileCard } from "./components/ProfileCard";
 import { ChristmasLights } from "./components/ChristmasLights";
 
+import dustin from "./assets/Dustin.webp";
+import eleven from "./assets/Eleven.webp";
+import hopper from "./assets/Hopper.webp";
+
+import Jhonathan from "./assets/Jhonathan.webp";
+import joyce from "./assets/Joyce.webp";
+import lucas from "./assets/Lucas.webp";
+import mike from "./assets/Mike.webp";
+import murray from "./assets/Murray.webp";
+import nancy from "./assets/Nancy.webp";
+import robin from "./assets/Robin.jpg";
+import steve from "./assets/Steve.webp";
+import will from "./assets/Will.webp";
+
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
@@ -145,16 +159,16 @@ function App() {
   lg:px-20
   lg:pt-20
 ">
-          <ProfileCard />
-          <ProfileCard />
-          <ProfileCard />
-          <ProfileCard />
-          <ProfileCard />
-          <ProfileCard />
-          <ProfileCard />
-          <ProfileCard />
-          <ProfileCard />
-          <ProfileCard />
+         <ProfileCard  id={1} name="Lucas" image={lucas}/>
+          <ProfileCard  id={2} name="Eleven" image={eleven}/>
+          <ProfileCard  id={3} name="Dustin" image={dustin}/>
+          <ProfileCard  id={4} name="Will" image={will}/>
+          <ProfileCard  id={5} name="Hopper" image={hopper}/>
+          <ProfileCard  id={6} name="Natalie" image={mike}/>
+          <ProfileCard  id={7} name="Natalie" image={Jhonathan}/>
+          <ProfileCard  id={8} name="Natalie" image={joyce}/>
+          <ProfileCard  id={9} name="Natalie" image={robin}/>
+          <ProfileCard  id={10} name="Natalie" image={nancy}/>
 
         </div>
       </section>
